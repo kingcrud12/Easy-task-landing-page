@@ -282,6 +282,13 @@ h1, h2, h3 {
     gap: 1.5rem;
 }
 
+.footer-links {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
 /* Animations */
 .fade-in {
     opacity: 0;
