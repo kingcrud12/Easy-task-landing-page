@@ -4,12 +4,12 @@
     --card-bg: #121214;
     --text-primary: #ffffff;
     --text-secondary: #a1a1aa;
-    --accent-primary: #8b5cf6;
-    /* Violet */
-    --accent-secondary: #ec4899;
-    /* Pink */
-    --accent-tertiary: #3b82f6;
+    --accent-primary: #3b82f6;
     /* Blue */
+    --accent-secondary: #0ea5e9;
+    /* Sky */
+    --accent-tertiary: #6366f1;
+    /* Indigo */
     --border-color: #27272a;
     --font-main: 'Inter', system-ui, -apple-system, sans-serif;
     --spacing-container: 2rem;
