@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Task - Documentation</title>
+    <style>
+        :root {
+            --primary: #007AFF;
+            --background: #F2F2F7;
+            --card: #FFFFFF;
+            --text: #000000;
+            --text-secondary: #666666;
+            --code-bg: #1E1E1E;
+            --code-text: #D4D4D4;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .lang-switch {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+        }
+
+        button:hover {
+            opacity: 0.9;
+        }
+
+        section {
+            background-color: var(--card);
+            border-radius: 16px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--background);
+            padding-bottom: 10px;
+            color: var(--primary);
+        }
+
+        h3 {
+            margin-top: 25px;
+        }
+
+        pre {
+            background-color: var(--code-bg);
+            color: var(--code-text);
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-family: "Menlo", "Monaco", "Courier New", monospace;
+        }
+
+        code {
+            font-family: "Menlo", "Monaco", "Courier New", monospace;
+            background-color: #EEE;
+            padding: 2px 4px;
+            border-radius: 4px;
+            color: #D63384;
+        }
+
+        pre code {
+            background-color: transparent;
+            color: inherit;
+            padding: 0;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-right: 5px;
+        }
+
+        .badge.local {
+            background-color: #E5E5EA;
+            color: #333;
+        }
+
+        .badge.cloud {
+            background-color: #FF9500;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="lang-switch" style="display: flex; justify-content: space-between;">
+            <button onclick="window.location.href='index.html'">
+                <span class="lang-en">← Back to Home</span>
+                <span class="lang-fr hidden">← Retour à l'accueil</span>
+            </button>
+            <button onclick="toggleLanguage()">Français / English</button>
+        </div>
+        <header>
+            <h1>Easy Task</h1>
+            <p id="subtitle">Documentation Technique & Guide Utilisateur</p>
+        </header>
+        <!-- USER GUIDE -->
+        <section id="user-guide">
+            <h2 class="lang-en">User Guide</h2>
+            <h2 class="lang-fr hidden">Guide Utilisateur</h2>
+            <div class="lang-en">
+                <h3>Overview</h3>
+                <p>Easy Task is your personal assistant for managing deadlines, meetings, and invoices. It helps you
+                    stay organized with visual countdowns and professional tools.</p>
+
+                <h3>Key Features</h3>
+                <ul>
+                    <li><strong>Deadline Management:</strong> Visual countdowns, progress gauges, and overlap protection
+                        to avoid double-booking.</li>
+                    <li><strong>Invoicing:</strong> Create professional invoices, manage items with different prices,
+                        and share them via Email or PDF.</li>
+                    <li><strong>Focus Mode:</strong> A dedicated timer view to help you concentrate on the task at hand.
+                    </li>
+                    <li><strong>Google Integration:</strong> Sync reminders with your Google Calendar.</li>
+                </ul>
+            </div>
+            <div class="lang-fr hidden">
+                <h3>Vue d'ensemble</h3>
+                <p>Easy Task est votre assistant personnel pour gérer vos échéances, réunions et factures. Il vous aide
+                    à rester organisé grâce à des comptes à rebours visuels et des outils professionnels.</p>
+
+                <h3>Fonctionnalités Clés</h3>
+                <ul>
+                    <li><strong>Gestion des Échéances :</strong> Comptes à rebours visuels, jauges de progression et
+                        protection contre les chevauchements.</li>
+                    <li><strong>Facturation :</strong> Créez des factures professionnelles, gérez des articles avec des
+                        prix différents, et partagez-les par Email ou PDF.</li>
+                    <li><strong>Mode Concentration :</strong> Une vue minuteur dédiée pour vous aider à vous concentrer
+                        sur la tâche en cours.</li>
+                    <li><strong>Intégration Google :</strong> Synchronisez vos rappels avec votre Google Agenda.</li>
+                </ul>
+            </div>
+        </section>
+        <!-- TECHNICAL DOCUMENTATION -->
+        <section id="tech-doc">
+            <h2 class="lang-en">Technical Documentation</h2>
+            <h2 class="lang-fr hidden">Documentation Technique</h2>
+            <div class="lang-en">
+                <h3>Architecture (MVVM)</h3>
+                <p> The app follows the <strong>Model-View-ViewModel</strong> pattern using SwiftUI.</p>
+                <ul>
+                    <li><strong>Models:</strong> Define data structures (<code>Deadline</code>, <code>Invoice</code>).
+                    </li>
+                    <li><strong>Views:</strong> Display the UI and observe Managers (<code>HomeView</code>,
+                        <code>InvoiceDetailView</code>).
+                    </li>
+                    <li><strong>Managers (ViewModels):</strong> Handle business logic and data persistence
+                        (<code>DeadlineManager</code>, <code>InvoiceManager</code>).</li>
+                </ul>
+            </div>
+            <div class="lang-fr hidden">
+                <h3>Architecture (MVVM)</h3>
+                <p>L'application suit le modèle <strong>Model-View-ViewModel</strong> avec SwiftUI.</p>
+                <ul>
+                    <li><strong>Modèles :</strong> Définissent les structures de données (<code>Deadline</code>,
+                        <code>Invoice</code>).
+                    </li>
+                    <li><strong>Vues :</strong> Affichent l'interface et observent les Managers (<code>HomeView</code>,
+                        <code>InvoiceDetailView</code>).
+                    </li>
+                    <li><strong>Managers (ViewModels) :</strong> Gèrent la logique métier et la persistance
+                        (<code>DeadlineManager</code>, <code>InvoiceManager</code>).</li>
+                </ul>
+            </div>
+            <!-- PERSISTENCE SECTION -->
+            <h3 class="lang-en">Data Persistence</h3>
+            <h3 class="lang-fr hidden">Persistance des Données</h3>
+
+            <p>
+                <span class="badge local">Local (UserDefaults)</span>
+                <span class="lang-en">Used for Invoices and Deadlines. Simple JSON encoding.</span>
+                <span class="lang-fr hidden">Utilisé pour les Factures et les Échéances. Encodage JSON simple.</span>
+            </p>
+            <p>
+                <span class="badge cloud">Cloud (Firebase)</span>
+                <span class="lang-en">Used for User Profiles and Premium Subscription status.</span>
+                <span class="lang-fr hidden">Utilisé pour le Profil Utilisateur et le statut d'Abonnement
+                    Premium.</span>
+            </p>
+            <h4 class="lang-en">Example: Invoice Persistence (Local)</h4>
+            <h4 class="lang-fr hidden">Exemple : Persistance Facture (Local)</h4>
+            <pre><code class="language-swift">private func saveInvoices() {
+    invoices.sort { $0.createdAt > $1.createdAt }
+    if let encoded = try? JSONEncoder().encode(invoices) {
+        UserDefaults.standard.set(encoded, forKey: userDefaultsKey)
+    }
+}</code></pre>
+            <h4 class="lang-en">Example: User Persistence (Firestore)</h4>
+            <h4 class="lang-fr hidden">Exemple : Persistance Utilisateur (Firestore)</h4>
+            <pre><code class="language-swift">func saveUserToFirestore(_ user: User) async throws {
+    let userDict = user.toDictionary()
+    try await db.collection("users").document(user.id).setData(userDict, merge: true)
+}</code></pre>
+            <!-- LOGIC EXAMPLES -->
+            <h3 class="lang-en">Key Logic Examples</h3>
+            <h3 class="lang-fr hidden">Exemples de Logique Clé</h3>
+            <h4 class="lang-en">Overlap Prevention (DeadlineManager)</h4>
+            <h4 class="lang-fr hidden">Prévention des Chevauchements (DeadlineManager)</h4>
+            <div class="lang-en">
+                <p>Prevents users from scheduling two tasks at the same time.</p>
+            </div>
+            <div class="lang-fr hidden">
+                <p>Empêche les utilisateurs de planifier deux tâches en même temps.</p>
+            </div>
+            <pre><code class="language-swift">func checkForOverlap(startDate: Date, duration: TimeInterval) -> Bool {
+    let newEnd = startDate.addingTimeInterval(duration)
+    for deadline in deadlines {
+        // Checking intersection: (StartA < EndB) && (EndA > StartB)
+        let taskEnd = deadline.date.addingTimeInterval(deadline.duration)
+        if startDate < taskEnd && newEnd > deadline.date {
+            return true
+        }
+    }
+    return false
+}</code></pre>
+            <h4 class="lang-en">PDF Generation (InvoiceManager)</h4>
+            <h4 class="lang-fr hidden">Génération PDF (InvoiceManager)</h4>
+            <div class="lang-en">
+                <p>Uses `UIGraphicsPDFRenderer` to draw invoices programmatically.</p>
+            </div>
+            <div class="lang-fr hidden">
+                <p>Utilise `UIGraphicsPDFRenderer` pour dessiner les factures par code.</p>
+            </div>
+            <pre><code class="language-swift">let renderer = UIGraphicsPDFRenderer(bounds: pageRect, format: format)
+let data = renderer.pdfData { (context) in
+    context.beginPage()
+    // Drawing Title
+    "FACTURE".draw(at: CGPoint(x: 40, y: 40), withAttributes: titleAttributes)
+    // Drawing Items...
+}</code></pre>
+        </section>
+    </div>
+    <script>
+        let currentLang = 'en';
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'fr' : 'en';
+            updateContent();
+        }
+        function updateContent() {
+            const enElements = document.querySelectorAll('.lang-en');
+            const frElements = document.querySelectorAll('.lang-fr');
+            if (currentLang === 'en') {
+                enElements.forEach(el => el.classList.remove('hidden'));
+                frElements.forEach(el => el.classList.add('hidden'));
+                document.getElementById('subtitle').innerText = "Technical Documentation & User Guide";
+            } else {
+                enElements.forEach(el => el.classList.add('hidden'));
+                frElements.forEach(el => el.classList.remove('hidden'));
+                document.getElementById('subtitle').innerText = "Documentation Technique & Guide Utilisateur";
+            }
+        }
+    </script>
+</body>
+
+</html>
