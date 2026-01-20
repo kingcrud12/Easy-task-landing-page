@@ -88,6 +88,12 @@ h3 {
     margin-top: 2rem;
 }
 
+
+/* Utility classes */
+.hidden {
+    display: none !important;
+}
+
 /* Layout Utilities */
 .container {
     max-width: var(--max-width);

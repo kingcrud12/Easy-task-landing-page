@@ -123,6 +123,34 @@
             background-color: #FF9500;
             color: white;
         }
+
+        /* Video Grid Styles */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%;
+            /* 16:9 Aspect Ratio */
+            height: 0;
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
     </style>
 </head>
 
@@ -137,7 +165,10 @@
         </div>
         <header>
             <h1>Easy Task</h1>
-            <p id="subtitle">Documentation Technique & Guide Utilisateur</p>
+            <p id="subtitle">
+                <span class="lang-en">Technical Documentation & User Guide</span>
+                <span class="lang-fr hidden">Documentation Technique & Guide Utilisateur</span>
+            </p>
         </header>
         <!-- USER GUIDE -->
         <section id="user-guide">
@@ -304,6 +335,29 @@ let data = renderer.pdfData { (context) in
                 </p>
             </div>
         </section>
+
+        <!-- VLOG SECTION -->
+        <section id="vlog">
+            <h2 class="lang-en">Vlog: Building of Easy Task</h2>
+            <h2 class="lang-fr hidden">Vlog : La Réalisation de l'Application</h2>
+
+            <div class="lang-en">
+                <p>Discover the behind-the-scenes of creating Easy Task. A challenge: <strong>1 Month to set up your
+                        assistant</strong>.</p>
+            </div>
+            <div class="lang-fr hidden">
+                <p>Découvrez les coulisses de la création d'Easy Task. Un défi : <strong>1 Mois pour mettre en place
+                        votre assistant</strong>.</p>
+            </div>
+
+            <div class="video-grid">
+                <!-- Video 1 -->
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/PLACEHOLDER_ID" title="Vlog Easy Task"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
     </div>
     <script>
         let currentLang = 'en';
@@ -317,11 +371,9 @@ let data = renderer.pdfData { (context) in
             if (currentLang === 'en') {
                 enElements.forEach(el => el.classList.remove('hidden'));
                 frElements.forEach(el => el.classList.add('hidden'));
-                document.getElementById('subtitle').innerText = "Technical Documentation & User Guide";
             } else {
                 enElements.forEach(el => el.classList.add('hidden'));
                 frElements.forEach(el => el.classList.remove('hidden'));
-                document.getElementById('subtitle').innerText = "Documentation Technique & Guide Utilisateur";
             }
         }
     </script>
